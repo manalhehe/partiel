@@ -1,46 +1,355 @@
-/* Styles généraux */
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f0f0f0;
-  text-align: center;
-}
-
-h1 {
+  background-color: #fff;
   color: #333;
+  line-height: 1.6;
 }
 
-#imageTest {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 20px 0;
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+}
+.menu-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-}
-
-/* Media query pour mobile */
-@media screen and (max-width: 600px) {
-  body {
-    margin: 10px;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
-  button {
+/* Boutons */
+.btn {
+    display: block;
     width: 100%;
-    font-size: 18px;
-    padding: 15px 0;
-  }
+    padding: 12px;
+    margin: 8px 0;
+    text-align: center;
+}
+
+/* Grilles */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .btn {
+        width: auto;
+        display: inline-block;
+    }
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blue-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #007BFF; /* blue color */
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.logo img {
+  width: 25px;
+  height: auto;
+  margin-left: 6px;
+}
+
+.nav-links a {
+  margin-left: 25px;
+  color: #444;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007BFF;
+}
+
+/* Buttons in navbar */
+.nav-buttons button {
+  margin-left: 15px;
+  padding: 8px 18px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: #007BFF;
+  color: #007BFF;
+}
+
+.btn-outline:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.btn-blue {
+  background-color: #007BFF;
+  color: #fff;
+  border-color: #007BFF;
+}
+
+.btn-blue:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px 80px;
+  background: #f5faff;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.hero img {
+  max-width: 80px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  color: #222;
+}
+
+.highlight {
+  color: #007BFF;
+}
+
+.hero-desc {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.hero-buttons button {
+  margin: 0 12px;
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+/* Video Section */
+
+
+.video-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-preview {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    width: %;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #007bff;
+    font-size: 14px;
+}
+
+
+
+.partner.section div:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.partner.section img {
+  max-width: 200px;
+  max-height: 50px;
+  object-fit: contain;
+}
+.partner.section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colonnes */
+  gap: 20px; /* espacement entre les logos */
+  padding: 40px;
+  justify-items: center; /* centre chaque image dans sa cellule */
+  align-items: center;
+}
+
+.partner.section img {
+  max-width: 200px; /* ajuste la taille selon ton besoin */
+  height: auto;
+}
+.design-workflow {
+  text-align: center; /* Centre tout le texte */
+  padding: 80px 20px;
+  background: #fff; /* Fond blanc pour mieux voir */
+}
+
+.workflow-content {
+  max-width: 800px; /* Largeur optimale pour la lisibilité */
+  margin: 0 auto; /* Centrage horizontal */
+}
+
+.design-workflow h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.design-workflow p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.demo-section {
+  margin-top: 50px;
+}
+
+.demo-section h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.demo-list {
+  display: inline-block; /* Permet le centrage */
+  text-align: left; /* Alignement du texte à gauche */
+  margin: 0 auto;
+  padding: 0;
+  list-style-position: inside; /* Puce incluse dans le centrage */
+}
+
+.demo-list li {
+  display: inline-block; /* Alignement horizontal */
+  margin: 0 10px;
+  padding: 8px 20px;
+  background: #f8f9fa;
+  border-radius: 20px;
+  color: #3498db;
+  font-weight: 500;
+}
+.features {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex; /* Ajouté pour le centrage vertical */
+}
+
+.feature-content {
+  text-align: center; /* Centre le texte horizontalement */
+  width: 100%; /* Prend toute la largeur */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre verticalement */
+}
+
+.feature h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.feature p {
+  color: #7f8c8d;
+  line-height: 1.6;
 }
